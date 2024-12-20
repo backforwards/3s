@@ -5,56 +5,55 @@
 
 // -- Testing value creation
 
-void test_value_int_creation(void)
+ test_value_int_creation()
 {
     ts_generic_t value = ts_new_int(9);
     ASSERT_EQ(value->data.integer, (int32_t)9);
     ASSERT_EQ(value->type, TS_TYPE_INTEGER);
 }
 
-void test_value_unsigned_creation(void)
+ test_value_unsigned_creation()
 {
     ts_generic_t value = ts_new_uint(9);
     ASSERT_EQ(value->data.uinteger, (uint32_t)9);
     ASSERT_EQ(value->type, TS_TYPE_UNSIGNED);
 }
 
-void test_value_float32_creation(void)
+ test_value_float32_creation()
 {
     ts_generic_t value = ts_new_float32(9);
     ASSERT_EQ(value->data.float32, (float)9);
     ASSERT_EQ(value->type, TS_TYPE_FLOAT32);
 }
 
-void test_value_float64_creation(void)
+ test_value_float64_creation()
 {
     ts_generic_t value = ts_new_float64(9);
     ASSERT_EQ(value->data.float64, (double)9);
     ASSERT_EQ(value->type, TS_TYPE_FLOAT64);
 }
-
-void test_value_string_creation(void)
+ test_value_string_creation()
 {
     ts_generic_t value = ts_new_string("Test");
     ASSERT_STR_EQ(value->data.string, "Test");
     ASSERT_EQ(value->type, TS_TYPE_STRING);
 }
 
-void test_value_pointer_creation(void)
+ test_value_pointer_creation()
 {
     ts_generic_t value = ts_new_pointer((void *)3);
     ASSERT_EQ(value->data.pointer, (void *)3);
     ASSERT_EQ(value->type, TS_TYPE_POINTER);
 }
 
-void test_value_char_creation(void)
+ test_value_char_creation()
 {
     ts_generic_t value = ts_new_char('X');
     ASSERT_EQ(value->data.character, 'X');
     ASSERT_EQ(value->type, TS_TYPE_CHARACTER);
 }
 
-void test_value_none_creation(void)
+ test_value_none_creation()
 {
     ts_generic_t value = ts_new_none();
     ASSERT_EQ(value->type, TS_TYPE_NONE);
@@ -62,7 +61,7 @@ void test_value_none_creation(void)
 
 // -- Testing representation
 
-void test_value_int_repr(void)
+ test_value_int_repr()
 {
     ts_generic_t value = ts_new_int(3);
     ASSERT_STR_EQ(value->repr(value), "3");
@@ -70,7 +69,7 @@ void test_value_int_repr(void)
 
 // -- Testing comparation
 
-void test_value_int_comparation(void)
+ test_value_int_comparation()
 {
     ts_generic_t value1 = ts_new_int(3);
 
@@ -82,7 +81,7 @@ void test_value_int_comparation(void)
     ASSERT_EQ(TS_DIFFERENT, value1->compare(value1, ts_new_pointer(0)));
 }
 
-void test_value_uint_comparation(void)
+ test_value_uint_comparation()
 {
     ts_generic_t value1 = ts_new_uint(3);
 
@@ -94,7 +93,7 @@ void test_value_uint_comparation(void)
     ASSERT_EQ(TS_DIFFERENT, value1->compare(value1, ts_new_pointer(0)));
 }
 
-void test_value_float32_comparation(void)
+test_value_float32_comparation()
 {
     ts_generic_t value1 = ts_new_float32(3.0);
 
@@ -106,7 +105,7 @@ void test_value_float32_comparation(void)
     ASSERT_EQ(TS_DIFFERENT, value1->compare(value1, ts_new_pointer(0)));
 }
 
-void test_value_float64_comparation(void)
+ test_value_float64_comparation()
 {
     ts_generic_t value1 = ts_new_float64(3.0);
 
@@ -118,7 +117,7 @@ void test_value_float64_comparation(void)
     ASSERT_EQ(TS_DIFFERENT, value1->compare(value1, ts_new_pointer(0)));
 }
 
-void test_value_string_comparation(void)
+ test_value_string_comparation()
 {
     ts_generic_t value1 = ts_new_string("test string");
 
